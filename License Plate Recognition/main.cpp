@@ -7,13 +7,15 @@
 using namespace cv;
 using namespace std;
 
+/* Takes image as input, detects all license plates in the image, and saves the cropped license plate */
+
 int main() {
 
 	string path = "Resources/test3.jpg";
 	Mat img = imread(path);
 
 	CascadeClassifier plateCascade;
-	plateCascade.load("Resources/haarcascade_russian_plate_number.xml");
+	plateCascade.load("Resources/haarcascade_russian_plate_number.xml"); // model trained for Russian plates
 	if (plateCascade.empty())
 		cout << "XML not loaded" << endl;
 
